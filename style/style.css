@@ -4,6 +4,10 @@
   border: 2px solid rgba(204, 204, 204, 0.877);
   width: 15%;
 }
+@import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique&display=swap');
+*{
+  font-family: 'Zen Kaku Gothic Antique', sans-serif;
+}
 ul,
 #myUL {
   list-style-type: none;

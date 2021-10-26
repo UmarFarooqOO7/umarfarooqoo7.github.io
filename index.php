@@ -19,6 +19,13 @@ if (empty($_SESSION['email']) && empty($_SESSION['name'])) {
     <link rel="stylesheet" href="./index.css">
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="./assets/bootstrap.style/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
+    <style>
+        .bi-power,.bi-people-fill{
+            font-size:28px;
+            color:#fff;
+        }
+    </style>
 </head>
 
 
@@ -32,15 +39,9 @@ if (empty($_SESSION['email']) && empty($_SESSION['name'])) {
     </audio>
 
     <nav class="navbar navbar-expand-sm navbar-dark d-flex flex-row-reverse">
-        <a class="btn btn-success ml-2" href="./logout.php">Log Out</a>
-        <?php
-        if ($_SESSION['type'] == "admin") {
-            echo '<a class="btn btn-success" href="./user-management.php">Manage Users</a>';
-        }
-        ?>
-        <a style="color:white">Wellcome <?php echo $_SESSION['name'] . ' !'; ?></a>
+   
 
-        <div class="navbar-brand navbar-brand-centered">Brand</div>
+        <div class="navbar-brand navbar-brand-centered mt-5">LOGO</div>
     </nav>
 
     <div class="wrapper">
@@ -48,7 +49,7 @@ if (empty($_SESSION['email']) && empty($_SESSION['name'])) {
             <!-- <form action=""> -->
             <div id="topId">
                 <label for="" style="color: #fff; text-align: center; display: block;">ENTER NUMBER OF TICKETS:</label>
-                <div><input id="number" placeholder="ENTER NUMBER OF TICKETS" type="number" min="1"></div>
+                <div><input id="number" placeholder="ENTER NUMBER OF TICKETS" style=" text-align: center;" type="number" min="1"></div>
                 <div class="text-center"><button onclick="myClick(this)" class="bubbly-button buttonAnimation">START</button>
                 </div>
             </div>
@@ -91,6 +92,15 @@ if (empty($_SESSION['email']) && empty($_SESSION['name'])) {
 
         </div>
     </div>
+    <div style="position:absolute;right:3%;bottom:6%;">
+        <?php
+        if ($_SESSION['type'] == "admin") {
+            echo '<a  href="./user-management.php"><i class="bi bi-people-fill"></i></a>';
+        }
+        ?>
+        <!-- <a style="color:white" class="px-3">Welcome <?php echo $_SESSION['name'] . ' !'; ?></a> -->
+      <a class=" mx-3" href="./logout.php"><i class="bi bi-power"></i></a>
+      </div>
 </body>
 <script>
     const myClick = (e) => {

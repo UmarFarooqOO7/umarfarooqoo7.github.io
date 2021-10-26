@@ -44,14 +44,29 @@ if (isset($_SESSION) && isset($_SESSION['email']) && isset($_SESSION['type']) &&
     <script src="./assets/fontawesome/font-awesome.js"></script>
     <title>User Management</title>
 </head>
-
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique&display=swap');
+*{
+  font-family: 'Zen Kaku Gothic Antique', sans-serif;
+}
+      form{
+            display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+        }
+        .dataTables_filter{
+            display: flex;
+            justify-content: flex-end;
+        }
+</style>
 <body>
     <div class="headings">
-        <h1>User Management</h1>
-    </div>
-
-    <form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST">
-        <div class="center-user">
+        </div>
+        
+        <form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST">
+            <div class="center-user1 col-lg-6 shadow rounded m-auto p-4">
+            <h1 class="text-center py-2">User Management</h1>
             <div class="message" id="message"></div>
 
             <style>
@@ -60,10 +75,10 @@ if (isset($_SESSION) && isset($_SESSION['email']) && isset($_SESSION['type']) &&
                 }
             </style>
             <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                <label class="btn btn-success active">
-                    <input type="radio" name="options" id="option1" autocomplete="off" checked> Register User
+                <label class="btn btn-primary active">
+                    <input type="radio"  name="options" id="option1" autocomplete="off" checked> Register User
                 </label>
-                <label class="btn btn-success">
+                <label class="btn btn-primary">
                     <input type="radio" name="options" id="option2" autocomplete="off">
                     View Users
                 </label>
@@ -72,25 +87,25 @@ if (isset($_SESSION) && isset($_SESSION['email']) && isset($_SESSION['type']) &&
             <br>
 
             <div id="create_user">
-                <div>
+                <div class="pt-3">
                     <label class="email-lab"><b>Name</b></label>
-                    <input type="text" name="name" class="fields">
+                    <input type="text"  name="name" class="fields form-control">
                 </div>
 
-                <div>
+                <div class="pt-3">
                     <label class="email-lab"><b>Email</b></label>
-                    <input type="text" name="email" class="fields">
+                    <input type="text" name="email" class="fields form-control">
                 </div>
 
 
-                <div>
+                <div class="pt-3">
                     <label class="pass-lab"><b>Password</b></label>
-                    <input type="password" name="password" class="fields">
+                    <input type="password" name="password" class="fields form-control">
                 </div>
 
                 <br>
 
-                <button class="login-button"><b>Create User</b></button>
+                <button class="login-button btn btn-primary"><b>Create User</b></button>
             </div>
 
             <div id="users" style="display: none">
