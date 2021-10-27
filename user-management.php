@@ -2,7 +2,7 @@
 require_once('./conn.php');
 function createNewUser($name, $email, $password, $conn)
 {
-    $password = password_hash($password, PASSWORD_DEFAULT);
+    // $password = password_hash($password, PASSWORD_DEFAULT);
     $sql = "INSERT INTO users VALUES ('$name', '$email', '$password', 'user')";
     if ($conn->query($sql)) {
         return 'User Created successfully.';
@@ -46,26 +46,30 @@ if (isset($_SESSION) && isset($_SESSION['email']) && isset($_SESSION['type']) &&
 </head>
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique&display=swap');
-*{
-  font-family: 'Zen Kaku Gothic Antique', sans-serif;
-}
-      form{
-            display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-        }
-        .dataTables_filter{
-            display: flex;
-            justify-content: flex-end;
-        }
+
+    * {
+        font-family: 'Zen Kaku Gothic Antique', sans-serif;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100%;
+    }
+
+    .dataTables_filter {
+        display: flex;
+        justify-content: flex-end;
+    }
 </style>
+
 <body>
     <div class="headings">
-        </div>
-        
-        <form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST">
-            <div class="center-user1 col-lg-6 shadow rounded m-auto p-4">
+    </div>
+
+    <form action="<?php $_SERVER['PHP_SELF'] ?>" method="POST">
+        <div class="center-user1 col-lg-8 shadow rounded m-auto p-4">
             <h1 class="text-center py-2">User Management</h1>
             <div class="message" id="message"></div>
 
@@ -76,7 +80,7 @@ if (isset($_SESSION) && isset($_SESSION['email']) && isset($_SESSION['type']) &&
             </style>
             <div class="btn-group btn-group-toggle" data-toggle="buttons">
                 <label class="btn btn-primary active">
-                    <input type="radio"  name="options" id="option1" autocomplete="off" checked> Register User
+                    <input type="radio" name="options" id="option1" autocomplete="off" checked> Register User
                 </label>
                 <label class="btn btn-primary">
                     <input type="radio" name="options" id="option2" autocomplete="off">
@@ -89,7 +93,7 @@ if (isset($_SESSION) && isset($_SESSION['email']) && isset($_SESSION['type']) &&
             <div id="create_user">
                 <div class="pt-3">
                     <label class="email-lab"><b>Name</b></label>
-                    <input type="text"  name="name" class="fields form-control">
+                    <input type="text" name="name" class="fields form-control">
                 </div>
 
                 <div class="pt-3">
@@ -100,7 +104,7 @@ if (isset($_SESSION) && isset($_SESSION['email']) && isset($_SESSION['type']) &&
 
                 <div class="pt-3">
                     <label class="pass-lab"><b>Password</b></label>
-                    <input type="password" name="password" class="fields form-control">
+                    <input type="text" name="password" class="fields form-control">
                 </div>
 
                 <br>
