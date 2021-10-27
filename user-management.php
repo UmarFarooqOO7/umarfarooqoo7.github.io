@@ -42,6 +42,7 @@ if (isset($_SESSION) && isset($_SESSION['email']) && isset($_SESSION['type']) &&
     <link rel="stylesheet" href="./style/style-user.css">
     <link rel="stylesheet" href="./assets/bootstrap.style/styles.css">
     <script src="./assets/fontawesome/font-awesome.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
     <title>User Management</title>
 </head>
 <style>
@@ -56,6 +57,10 @@ if (isset($_SESSION) && isset($_SESSION['email']) && isset($_SESSION['type']) &&
         flex-direction: column;
         align-items: center;
         height: 100%;
+    }
+    .bi-arrow-left-circle{
+        font-size:36px;
+        color:black;
     }
 
     .dataTables_filter {
@@ -140,7 +145,8 @@ if (isset($_SESSION) && isset($_SESSION['email']) && isset($_SESSION['type']) &&
                 </div>
             </div>
     </form>
-
+            </div>
+<div style="position:absolute;left:4%;top:6%;"><a href="./index.php"><i class="bi bi-arrow-left-circle"></i></a></div>
     <?php
     if (isset($msg)) {
     ?>

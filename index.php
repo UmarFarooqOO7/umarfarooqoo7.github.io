@@ -25,6 +25,42 @@ if (empty($_SESSION['email']) && empty($_SESSION['name'])) {
             font-size:28px;
             color:#fff;
         }
+        .tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    width: 140px;
+    visibility: hidden;
+
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 7px 7px;
+    position: absolute;
+    z-index: 1;
+    white-space: nowrap;
+    bottom: 127%;
+    left: 50%;
+    margin-left: -70px;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
     </style>
 </head>
 
@@ -38,11 +74,13 @@ if (empty($_SESSION['email']) && empty($_SESSION['name'])) {
         <source src="https://assets.mixkit.co/sfx/preview/mixkit-start-countdown-927.mp3" type="audio/ogg">
     </audio>
 
-    <nav class="navbar navbar-expand-sm navbar-dark d-flex flex-row-reverse">
-   
-
-        <div class="navbar-brand navbar-brand-centered mt-5">LOGO</div>
-    </nav>
+    <!-- <nav class="navbar navbar-expand-sm navbar-dark d-flex flex-row-reverse"> -->
+        <div class=" mt-5" style="position:absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}"><img src="./assets/images/West_Lakes_Golf_Club_a-removebg-preview.png" width="200" alt="" srcset=""></div>
+    <!-- </nav> -->
 
     <div class="wrapper">
         <div class="container" style="width: 630px;">
@@ -92,14 +130,14 @@ if (empty($_SESSION['email']) && empty($_SESSION['name'])) {
 
         </div>
     </div>
-    <div style="position:absolute;right:3%;bottom:6%;">
+    <div style="position:absolute;right:4%;bottom:6%;">
         <?php
         if ($_SESSION['type'] == "admin") {
-            echo '<a  href="./user-management.php"><i class="bi bi-people-fill"></i></a>';
+            echo '<a class="tooltip" href="./user-management.php"><i class="bi bi-people-fill"></i><span class="tooltiptext">User Management</span></a>';
         }
         ?>
         <!-- <a style="color:white" class="px-3">Welcome <?php echo $_SESSION['name'] . ' !'; ?></a> -->
-      <a class=" mx-3" href="./logout.php"><i class="bi bi-power"></i></a>
+      <a class="tooltip mx-2" href="./logout.php"><i class="bi bi-power"></i><span class="tooltiptext">Logout</span></a></a>
       </div>
 </body>
 <script>
