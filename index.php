@@ -75,7 +75,7 @@ if (empty($_SESSION['email']) && empty($_SESSION['name'])) {
     </audio>
 
     <!-- <nav class="navbar navbar-expand-sm navbar-dark d-flex flex-row-reverse"> -->
-        <div class=" mt-5" style="position:absolute;
+        <div class=" mt-5" style="
     width: 100%;
     display: flex;
     justify-content: center;
