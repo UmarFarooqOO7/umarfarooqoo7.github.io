@@ -1,3 +1,5 @@
+
+
 <?php
     require_once('./conn.php');
     $GLOBALS['err']= $_GET && $_GET['error'] ? $_GET['error'] : null;
@@ -35,35 +37,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="./style/style-login.css">
+<link rel="stylesheet" href="assets/bootstrap.style/styles.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
+
+<style>
+        form{
+            display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+        }
+        
+        .tk-intro {
+    font-size: 21px;
+    line-height: 1.38105;
+    font-weight: 400;
+    letter-spacing: .011em;
+}
+</style>
 </head>
 <body>
+
     <form action="<?php echo $_SERVER["PHP_SELF"];?>" method="POST">
-        <h1 class="text">Login</h1>
-        <hr>
-        <div class="center-login">
-            <div class="error">* 
+        <div class="center-login1 col-lg-3 m-auto shadow p-4 rounded">
+        <h1 tabindex="-1" class="si-container-title tk-intro  text-center">
+        Security check	
+              
+        </h1>
+            <div class="error d-none">* 
                 <?php if(isset($err)){
                         echo $err;
                     }else
                         echo 'Enter email and password';
                 ?></div>
-            <div>
-                <label class="email-lab">Email</label>
-                <input type="email" name="email" class="fields" requred>
+            <div class="pt-4">
+                <!-- <label class="email-lab"></label> -->
+                <input type="email" name="email" placeholder="Email" class="fields" required>
             </div>
 
-            <br>
-            <br>
-
-            <div>
-                <label class="pass-lab">Password</label>
-                <input type="password" name="password" class="fields" required>
+            <div class="pt-4">
+                <!-- <label class="pass-lab">Password</label> -->
+                <input type="password" name="password"  placeholder="Password" class="fields" required>
             </div>
 
-            <br>
-
-            <input type="submit" name='login' value='Login'>
-
+           
+<div class="text-right pt-4"> <button type="submit" name='login' value='Login' class="btn btn-primary btn-lg">Login <i class="bi bi-arrow-right-circle"></i></button></div>
         </div>
     </form>
 </body>
