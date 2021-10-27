@@ -1,5 +1,3 @@
-
-
 <?php
 require_once('./conn.php');
 $GLOBALS['err'] = $_GET && $_GET['error'] ? $_GET['error'] : null;
@@ -64,14 +62,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <div class="center-login1 col-lg-3 m-auto shadow p-4 rounded">
             <h1 tabindex="-1" class="si-container-title tk-intro  text-center">
                 Security check
-
             </h1>
-            <div class="error">*
-                <?php if (isset($err)) {
-                    echo $err;
-                } else
-                    echo 'Enter email and password';
-                ?></div>
+
+            <?php if (isset($err)) {
+                echo "<div class='error'>*";
+                echo $err;
+                echo "</div>";
+            }
+            ?>
             <div class="pt-4">
                 <!-- <label class="email-lab"></label> -->
                 <input type="email" name="email" placeholder="Email" class="fields" required>

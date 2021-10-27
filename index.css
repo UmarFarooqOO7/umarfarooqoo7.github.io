@@ -13,7 +13,7 @@ body {
 }
 
 .wrapper {
-    height: 95%;
+    height: 85%;
     width: 100%;
     display: flex;
     align-items: center;
@@ -36,14 +36,12 @@ header {
     animation: gradient 15s ease infinite !important;
 }
 
-.startAgain {}
-
 .text-center {
     text-align: center;
 }
 
 .winnerTicket {
-    font-size: 39px;
+    font-size: 34px;
     text-align: center;
     text-transform: uppercase;
     color: #fff;

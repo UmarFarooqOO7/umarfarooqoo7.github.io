@@ -58,9 +58,10 @@ if (isset($_SESSION) && isset($_SESSION['email']) && isset($_SESSION['type']) &&
         align-items: center;
         height: 100%;
     }
-    .bi-arrow-left-circle{
-        font-size:36px;
-        color:black;
+
+    .bi-arrow-left-circle {
+        font-size: 36px;
+        color: black;
     }
 
     .dataTables_filter {
@@ -145,8 +146,8 @@ if (isset($_SESSION) && isset($_SESSION['email']) && isset($_SESSION['type']) &&
                 </div>
             </div>
     </form>
-            </div>
-<div style="position:absolute;left:4%;top:6%;"><a href="./index.php"><i class="bi bi-arrow-left-circle"></i></a></div>
+    </div>
+    <div style="position:absolute;left:4%;top:6%;"><a href="./index.php"><i class="bi bi-arrow-left-circle"></i></a></div>
     <?php
     if (isset($msg)) {
     ?>
