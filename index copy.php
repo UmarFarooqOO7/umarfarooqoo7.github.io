@@ -190,8 +190,6 @@ let resultArray = [];
                             </div>
                             `);
                             startAgain.innerHTML=`DRAW AGAIN`;
-                            document.getElementById('audio_play').pause()
-                            document.getElementById('audio_play2').play()
                         }
                     }
                 }
