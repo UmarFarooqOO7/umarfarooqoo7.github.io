@@ -6,7 +6,16 @@ if (empty($_SESSION['email']) && empty($_SESSION['name'])) {
     die();
 }
 ?>
-
+<style>
+    .boxes{
+        border:3px solid #fff;
+        padding: 12px;
+        width: 100px;
+        height: 100px;
+        font-size:20px;
+        color:#fff;
+    }
+</style>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -63,6 +72,13 @@ if (empty($_SESSION['email']) && empty($_SESSION['name'])) {
         .tooltip:hover .tooltiptext {
             visibility: visible;
         }
+        .drawHeading{
+            font-size:20px;
+            font-weight:bolder;
+            color:#fff;
+            text-align:center;
+            margin-top:5px;
+        }
     </style>
 </head>
 
@@ -88,64 +104,124 @@ if (empty($_SESSION['email']) && empty($_SESSION['name'])) {
             <!-- <form action=""> -->
             <div id="topId">
                 <label for="" style="color: #fff; text-align: center; display: block;">ENTER NUMBER OF TICKETS:</label>
-                <div><input id="number" placeholder="ENTER NUMBER OF TICKETS" style=" text-align: center;" type="number" min="1"></div>
+                <div><input id="number" placeholder="ENTER NUMBER OF TICKETS" class="w-100 form-control" style=" text-align: center;" type="number" min="1"></div>
+                <div><input id="number2" placeholder="HOW MANY DRAWS" class="w-100 form-control" required style=" text-align: center;" type="number" min="1"></div>
                 <div class="text-center"><button onclick="myClick(this)" class="bubbly-button buttonAnimation">START</button>
                 </div>
             </div>
             <div class="winnerTicket" id="winnerTicket" style="display: none;">The Winner ticket number is:</div>
             <!-- </form> -->
             <div id="asad"></div>
-            <div id="trophy" style="text-align: center;display: none;">
+            <!-- <div id="trophy" style="text-align: center;display: none;">
                 <img width="165" src="https://i.pinimg.com/originals/24/48/80/244880a0908584f0d4e5417190f74e23.png" alt="" srcset="">
-            </div>
+            </div> -->
 
-            <div style="text-align: center;"><button id="startAgain" class="startAgain" onclick="showAgain()" style="display: none;">START AGAIN</button></div>
+            <div style="text-align: center;"><button id="startAgain" class="startAgain" onclick="showAgain()" style="display: none;" >Start again</button></div>
         </div>
     </div>
-    <div style="position:absolute;right:4%;bottom:6%;">
-        <?php
-        if ($_SESSION['type'] == "admin") {
-            echo '<a class="tooltip" href="./user-management.php"><i class="bi bi-people-fill"></i><span class="tooltiptext">User Management</span></a>';
-        }
-        ?>
-        <!-- <a style="color:white" class="px-3">Welcome <?php echo $_SESSION['name'] . ' !'; ?></a> -->
-        <a class="tooltip mx-2" href="./logout.php"><i class="bi bi-power"></i><span class="tooltiptext">Logout</span></a></a>
     </div>
+
+    <div id="resultBox" style="transtition:.7s;" class="row w-100 m-auto flex-wrap px-5">
+        
+     
+    </div>
+
+<br>
+<br>
+<br>
+
+    <!-- <div id="InnerDiv" class="d-flex flex-wrap"></div> -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </body>
 <script>
-    const myClick = (e) => {
-        if (number.value >= '0') {
-            let a = number.value;
+let resultArray = [];
 
+
+
+    const myClick = (e) => {
+        // console.log(number2 != '');
+        if(number2.value == ''){
+            alert('ENTER NUMBER OF DRAWS')
+            return false;
+        }
+        if(number.value == ''){
+            alert('ENTER NUMBER OF TICKETS')
+            return false;
+        }
+
+        if (number.value >= '0' ) {
+            let a = number.value;
             let cler = setInterval(() => {
                 asad.innerHTML = Math.floor((Math.random() * a) + 1)
             }, 10)
             setTimeout(function() {
                 clearInterval(cler);
                 winnerTicket.style.display = 'block'
-                trophy.style.display = 'block'
+                // trophy.style.display = 'block'
                 startAgain.style.display = 'block'
                 document.getElementById('audio_play').play()
 
+                resultArray.push(asad.innerHTML);
+                $('#resultBox').html('');
+                let position = number2.value;
+                for (let i = 0; i < resultArray.length; i++) {
+                    if(position > i){
+                        if(position-i == 1){
+                            $('#resultBox').append(`
+                            <div class="col-1 mb-4" style="    transform: scale(1.5);
+    margin-right: 23px !important;
+    position: relative;
+    left: 16px;}">
+                                <div class="boxes rounded d-flex h1 m-0 justify-content-center align-items-center m-auto w-100">
+                                    ${resultArray[i]}
+                                </div>
+                                <div class="drawHeading" style="font-size:21px;">Winner ${position-i}</div>
+                            </div>
+                            `);
+                            startAgain.innerHTML=`START AGAIN`;
+                        }else{
+                            $('#resultBox').append(`
+                            <div class="col-1 mb-4"">
+                                <div class="boxes rounded d-flex justify-content-center align-items-center m-auto h3 m-0">
+                                    ${resultArray[i]}
+                                </div>
+                                <div class="drawHeading">Draw ${position-i}</div>
+                            </div>
+                            `);
+                            startAgain.innerHTML=`DRAW AGAIN`;
+                        }
+                    }
+                }
+                
             }, 8000)
             topId.style.display = 'none'
             asad.style.display = 'block';
             document.getElementById('audio2_play').play()
-        } else {
-            alert('ENTER NUMBER OF TICKETS ')
         }
+
+       
+
         // e.preventDefault()
     }
 
+
+
     const showAgain = () => {
+            if(startAgain.innerHTML===`START AGAIN`){
+                window.location.reload();
+
+                
+            }
         if (document.getElementById('asad').style.display == 'block') {
             document.getElementById('asad').style.display = 'none';
         }
         winnerTicket.style.display = 'none'
-        trophy.style.display = 'none'
+        // trophy.style.display = 'none'
         topId.style.display = 'block'
         startAgain.style.display = 'none'
-        number.value = ''
+
+        myClick()
     }
 </script>
 <script>
@@ -161,11 +237,26 @@ if (empty($_SESSION['email']) && empty($_SESSION['name'])) {
         }, 700);
     };
 
-    var bubblyButtons = document.getElementsByClassName("bubbly-button");
+    // var bubblyButtons = document.getElementsByClassName("bubbly-button");
 
-    for (var i = 0; i < bubblyButtons.length; i++) {
-        bubblyButtons[i].addEventListener('click', animateButton, false);
-    }
+    // for (var i = 0; i < bubblyButtons.length; i++) {
+    //     bubblyButtons[i].addEventListener('click', animateButton, false);
+    // }
+    // for (var input = 100; input >= 1; input--) {
+    //    let abcgh = Math.floor((Math.random() * input) + 1)
+    //     var btn = document.createElement("div");
+    //     btn.classList.add('boxes')
+    //              btn.innerHTML=abcgh
+    //             InnerDiv.append(btn)
+    //     }
+
+
+
+
+
+
+
+
 </script>
 
 
