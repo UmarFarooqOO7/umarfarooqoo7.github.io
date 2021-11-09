@@ -1,22 +1,3 @@
-<?php
-require_once('./conn.php');
-session_start();
-if (empty($_SESSION['email']) && empty($_SESSION['name'])) {
-    header("Location: ./login.php");
-    die();
-}
-?>
-<style>
-    .boxes{
-        border:3px solid #fff;
-        padding: 12px;
-        width: 100px;
-        height: 100px;
-        font-size:20px;
-        color:#fff;
-    }
-</style>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,9 +6,9 @@ if (empty($_SESSION['email']) && empty($_SESSION['name'])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./index.css">
-    <link rel="stylesheet" href="style/style.css">
-    <link rel="stylesheet" href="./assets/bootstrap.style/styles.css">
+    <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style-bootstrap.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css">
     <style>
         .bi-power,
@@ -72,12 +53,22 @@ if (empty($_SESSION['email']) && empty($_SESSION['name'])) {
         .tooltip:hover .tooltiptext {
             visibility: visible;
         }
-        .drawHeading{
-            font-size:20px;
-            font-weight:bolder;
-            color:#fff;
-            text-align:center;
-            margin-top:5px;
+
+        .drawHeading {
+            font-size: 20px;
+            font-weight: bolder;
+            color: #fff;
+            text-align: center;
+            margin-top: 5px;
+        }
+
+        .boxes {
+            border: 3px solid #fff;
+            padding: 12px;
+            width: 100px;
+            height: 100px;
+            font-size: 20px;
+            color: #fff;
         }
     </style>
 </head>
@@ -89,7 +80,7 @@ if (empty($_SESSION['email']) && empty($_SESSION['name'])) {
         <source src="./small-audience-weak-applause-521.mp3" type="audio/ogg">
     </audio>
     <audio id="audio2_play" style="display: none;">
-        <source src="https://assets.mixkit.co/sfx/preview/mixkit-start-countdown-927.mp3" type="audio/ogg">
+        <source src="./mixkit-countdown.mp3" type="audio/ogg">
     </audio>
 
     <div class=" mt-4 mb-4" style="
@@ -104,9 +95,12 @@ if (empty($_SESSION['email']) && empty($_SESSION['name'])) {
             <!-- <form action=""> -->
             <div id="topId">
                 <label for="" style="color: #fff; text-align: center; display: block;">ENTER NUMBER OF TICKETS:</label>
-                <div><input id="number" placeholder="ENTER NUMBER OF TICKETS" class="w-100 form-control" style=" text-align: center;" type="number" min="1"></div>
-                <div><input id="number2" placeholder="HOW MANY DRAWS" class="w-100 form-control" required style=" text-align: center;" type="number" min="1"></div>
-                <div class="text-center"><button onclick="myClick(this)" class="bubbly-button buttonAnimation">START</button>
+                <div><input id="number" placeholder="ENTER NUMBER OF TICKETS" class="w-100 form-control"
+                        style=" text-align: center;" type="number" min="1"></div>
+                <div><input id="number2" placeholder="HOW MANY DRAWS" class="w-100 form-control" required
+                        style=" text-align: center;" type="number" min="1"></div>
+                <div class="text-center"><button onclick="myClick(this)"
+                        class="bubbly-button buttonAnimation">START</button>
                 </div>
             </div>
             <div class="winnerTicket" id="winnerTicket" style="display: none;">The Winner ticket number is:</div>
@@ -116,46 +110,47 @@ if (empty($_SESSION['email']) && empty($_SESSION['name'])) {
                 <img width="165" src="https://i.pinimg.com/originals/24/48/80/244880a0908584f0d4e5417190f74e23.png" alt="" srcset="">
             </div> -->
 
-            <div style="text-align: center;"><button id="startAgain" class="startAgain" onclick="showAgain()" style="display: none;" >Start again</button></div>
+            <div style="text-align: center;"><button id="startAgain" class="startAgain" onclick="showAgain()"
+                    style="display: none;">Start again</button></div>
         </div>
     </div>
     </div>
 
-    <div id="resultBox" style="transtition:.7s;" class="row w-100 m-auto flex-wrap px-5">
-        
-     
+    <div id="resultBox" style="transition:.7s;" class="row w-100 m-auto flex-wrap px-5">
+
+
     </div>
 
-<br>
-<br>
-<br>
+    <br>
+    <br>
+    <br>
 
     <!-- <div id="InnerDiv" class="d-flex flex-wrap"></div> -->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </body>
 <script>
-let resultArray = [];
+    let resultArray = [];
 
 
 
     const myClick = (e) => {
         // console.log(number2 != '');
-        if(number2.value == ''){
+        if (number2.value == '') {
             alert('ENTER NUMBER OF DRAWS')
             return false;
         }
-        if(number.value == ''){
+        if (number.value == '') {
             alert('ENTER NUMBER OF TICKETS')
             return false;
         }
 
-        if (number.value >= '0' ) {
+        if (number.value >= '0') {
             let a = number.value;
             let cler = setInterval(() => {
                 asad.innerHTML = Math.floor((Math.random() * a) + 1)
             }, 10)
-            setTimeout(function() {
+            setTimeout(function () {
                 clearInterval(cler);
                 winnerTicket.style.display = 'block'
                 // trophy.style.display = 'block'
@@ -166,8 +161,8 @@ let resultArray = [];
                 $('#resultBox').html('');
                 let position = number2.value;
                 for (let i = 0; i < resultArray.length; i++) {
-                    if(position > i){
-                        if(position-i == 1){
+                    if (position > i) {
+                        if (position - i == 1) {
                             $('#resultBox').append(`
                             <div class="col-1 mb-4" style="    transform: scale(1.5);
     margin-right: 23px !important;
@@ -176,31 +171,31 @@ let resultArray = [];
                                 <div class="boxes rounded d-flex h1 m-0 justify-content-center align-items-center m-auto w-100">
                                     ${resultArray[i]}
                                 </div>
-                                <div class="drawHeading" style="font-size:21px;">Winner ${position-i}</div>
+                                <div class="drawHeading" style="font-size:21px;">Winner ${position - i}</div>
                             </div>
                             `);
-                            startAgain.innerHTML=`START AGAIN`;
-                        }else{
+                            startAgain.innerHTML = `START AGAIN`;
+                        } else {
                             $('#resultBox').append(`
                             <div class="col-1 mb-4"">
                                 <div class="boxes rounded d-flex justify-content-center align-items-center m-auto h3 m-0">
                                     ${resultArray[i]}
                                 </div>
-                                <div class="drawHeading">Draw ${position-i}</div>
+                                <div class="drawHeading">Draw ${position - i}</div>
                             </div>
                             `);
-                            startAgain.innerHTML=`DRAW AGAIN`;
+                            startAgain.innerHTML = `DRAW AGAIN`;
                         }
                     }
                 }
-                
+
             }, 8000)
             topId.style.display = 'none'
             asad.style.display = 'block';
             document.getElementById('audio2_play').play()
         }
 
-       
+
 
         // e.preventDefault()
     }
@@ -208,11 +203,11 @@ let resultArray = [];
 
 
     const showAgain = () => {
-            if(startAgain.innerHTML===`START AGAIN`){
-                window.location.reload();
+        if (startAgain.innerHTML === `START AGAIN`) {
+            window.location.reload();
 
-                
-            }
+
+        }
         if (document.getElementById('asad').style.display == 'block') {
             document.getElementById('asad').style.display = 'none';
         }
@@ -225,14 +220,14 @@ let resultArray = [];
     }
 </script>
 <script>
-    var animateButton = function(e) {
+    var animateButton = function (e) {
 
         e.preventDefault;
         //reset animation
         e.target.classList.remove('animate');
 
         e.target.classList.add('animate');
-        setTimeout(function() {
+        setTimeout(function () {
             e.target.classList.remove('animate');
         }, 700);
     };
@@ -249,14 +244,6 @@ let resultArray = [];
     //              btn.innerHTML=abcgh
     //             InnerDiv.append(btn)
     //     }
-
-
-
-
-
-
-
-
 </script>
 
 
