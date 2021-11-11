@@ -68,6 +68,7 @@
             width: 100px;
             height: 120px;
             font-size: 43px;
+            
             /* font-weight: 600; */
             color: #fff;
             border-radius: 20px !important;
@@ -234,7 +235,7 @@
                     if (position > i) {
                         if (position - i == 1) {
                             $('#resultBox').append(`
-                            <div class="" style="transform: scale(1.5);
+                            <div class="" style="transform: scale(1.5);margin-bottom: 60px;
     position: relative;
     left: 50px;">
                                 <div class="boxes rounded d-flex  h1 m-0 justify-content-center align-items-center m-auto w-100">
@@ -246,7 +247,7 @@
                             startAgain.innerHTML = `START AGAIN`;
                         } else {
                             $('#resultBox').append(`
-                            <div class="pr-2">
+                            <div class="pr-2 " style="margin-bottom: 60px;">
             <div style="width:fit-content; min-width: 150px;"
                 class="boxes rounded d-flex justify-content-center align-items-center shadow-lg">
                 ${resultArray[i]}
