@@ -57,30 +57,33 @@
         .drawHeading {
             font-size: 20px;
             font-weight: bolder;
-            color: #fff;
+            color: black;
             text-align: center;
             margin-top: 5px;
         }
 
         .boxes {
-            border: 3px solid #fff;
-            padding: 12px;
+            border: 6px solid black;
+            padding: 8px;
             width: 100px;
-            height: 125px;
+            height: 120px;
             font-size: 43px;
-            font-weight: 700;
-            color: #fff;
+            /* font-weight: 600; */
+            color: black;
             border-radius: 20px !important;
         }
-        @media (min-width: 768px){
-        .col-md-4 {
-            flex: 0 0 18.333333%;
-            max-width: 18.333333%;
+
+        @media (min-width: 768px) {
+            .col-md-4 {
+                flex: 0 0 20.333333%;
+                max-width: 20.333333%;
+            }
+
+            .boxes {
+                font-size: 80px;
+            }
         }
-    .boxes {
-        font-size: 38px;
-    }
-        }
+
         @media (min-width: 1300px) {
             .col-lg1 {
                 flex: 0 0 11.6666666667% !important;
@@ -109,7 +112,7 @@
     width: 100%;
     display: flex;
     justify-content: center;">
-        <img src="./assets/images/West_Lakes_Golf_Club_a-removebg-preview.png" style="width: 28em;" alt="logo">
+        <img src="./assets/images/West_Lakes_Golf_Club_a-removebg-preview.png" style="width: 20em;" alt="logo">
     </div>
 
     <div class="wrapper">
@@ -139,9 +142,58 @@
     </div>
 
     <div id="resultBox" style="transition:.7s;" class="row justify-content-center w-100 m-auto flex-wrap px-3">
-
-
     </div>
+
+    <!-- testing result box -->
+    <!-- <div id="resultBox2" style="transition:.7s;" class="row justify-content-center w-100 m-auto flex-wrap px-3">
+        <div class="pr-2">
+            <div style="width:fit-content; min-width: 150px;"
+                class="boxes rounded d-flex justify-content-center align-items-center shadow">
+                455
+            </div>
+            <div class="drawHeading">Draw 10</div>
+        </div>
+
+        <div class="pr-2">
+            <div style="width:fit-content; min-width: 150px;"
+                class="boxes rounded d-flex justify-content-center align-items-center shadow">
+                61324
+            </div>
+            <div class="drawHeading">Draw 9</div>
+        </div>
+
+        <div class="pr-2">
+            <div style="width:fit-content; min-width: 150px;"
+                class="boxes rounded d-flex justify-content-center align-items-center shadow">
+                94
+            </div>
+            <div class="drawHeading">Draw 8</div>
+        </div>
+
+        <div class="pr-2">
+            <div style="width:fit-content; min-width: 150px;"
+                class="boxes rounded d-flex justify-content-center align-items-center shadow">
+                9
+            </div>
+            <div class="drawHeading">Draw 8</div>
+        </div>
+
+        <div class="pr-2">
+            <div style="width:fit-content; min-width: 150px;"
+                class="boxes rounded d-flex justify-content-center align-items-center shadow">
+                9434
+            </div>
+            <div class="drawHeading">Draw 8</div>
+        </div>
+
+        <div class="pr-2">
+            <div style="width:fit-content; min-width: 150px;"
+                class="boxes rounded d-flex justify-content-center align-items-center shadow">
+                945
+            </div>
+            <div class="drawHeading">Draw 8</div>
+        </div>
+    </div> -->
 
     <!-- <div id="InnerDiv" class="d-flex flex-wrap"></div> -->
 
@@ -182,10 +234,9 @@
                     if (position > i) {
                         if (position - i == 1) {
                             $('#resultBox').append(`
-                            <div class="col-lg2 col-sm-12 col-md-4 col-12 mb-5 transfromScale" style="transform: scale(1.5);
-    margin-right: 23px !important;
+                            <div class="" style="transform: scale(1.5);
     position: relative;
-    left: 16px;}">
+    left: 50px;">
                                 <div class="boxes rounded d-flex  h1 m-0 justify-content-center align-items-center m-auto w-100">
                                     ${resultArray[i]}
                                 </div>
@@ -195,12 +246,13 @@
                             startAgain.innerHTML = `START AGAIN`;
                         } else {
                             $('#resultBox').append(`
-                            <div class="col-lg1 col-md-4  col-sm-6 col-6  mb-5"">
-                                <div style="width:88%;" class="boxes rounded d-flex justify-content-center align-items-center m-auto h3 m-0">
-                                    ${resultArray[i]}
-                                </div>
-                                <div class="drawHeading">Draw ${position - i}</div>
-                            </div>
+                            <div class="pr-2">
+            <div style="width:fit-content; min-width: 150px;"
+                class="boxes rounded d-flex justify-content-center align-items-center shadow-lg">
+                ${resultArray[i]}
+            </div>
+            <div class="drawHeading">Draw ${position - i}</div>
+        </div>
                             `);
 
                             startAgain.innerHTML = `DRAW AGAIN`;
