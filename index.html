@@ -66,10 +66,23 @@
             border: 3px solid #fff;
             padding: 12px;
             width: 100px;
-            height: 100px;
-            font-size: 42px;
+            height: 125px;
+            font-size: 43px;
+            font-weight: 700;
             color: #fff;
             border-radius: 20px !important;
+        }
+
+        @media (min-width: 1300px) {
+            .col-lg1 {
+                flex: 0 0 11.6666666667% !important;
+                max-width: 11.666667% !important;
+            }
+
+            .col-lg2 {
+                flex: 0 0 9.6666666667% !important;
+                max-width: 9.666667% !important;
+            }
         }
     </style>
 </head>
@@ -88,18 +101,18 @@
     width: 100%;
     display: flex;
     justify-content: center;">
-        <img src="./assets/images/West_Lakes_Golf_Club_a-removebg-preview.png" style="width: 25em;" alt="logo">
+        <img src="./assets/images/West_Lakes_Golf_Club_a-removebg-preview.png" style="width: 28em;" alt="logo">
     </div>
 
     <div class="wrapper">
-        <div class="container" style="width: 30em">
+        <div class="container" style="width: 100%">
             <!-- <form action=""> -->
             <div id="topId">
                 <!-- <label for="" style="color: #fff; text-align: center; display: block;">ENTER NUMBER OF TICKETS:</label> -->
-                <div><input id="number" placeholder="ENTER NUMBER OF TICKETS" class="w-100 form-control"
-                        style=" text-align: center;" type="number" min="1"></div>
-                <div><input id="number2" placeholder="HOW MANY DRAWS" class="w-100 form-control" required
-                        style=" text-align: center;" type="number" min="1"></div>
+                <div class="col-lg-6 m-auto"><input id="number" placeholder="ENTER NUMBER OF TICKETS"
+                        class="w-100 form-control" style=" text-align: center;" type="number" min="1"></div>
+                <div class="col-lg-6 m-auto"><input id="number2" placeholder="HOW MANY DRAWS" class="w-100 form-control"
+                        required style=" text-align: center;" type="number" min="1"></div>
                 <div class="text-center"><button onclick="myClick(this)"
                         class="bubbly-button buttonAnimation">START</button>
                 </div>
@@ -117,7 +130,7 @@
     </div>
     </div>
 
-    <div id="resultBox" style="transition:.7s;" class="row justify-content-center w-100 m-auto flex-wrap px-5">
+    <div id="resultBox" style="transition:.7s;" class="row justify-content-center w-100 m-auto flex-wrap px-3">
 
 
     </div>
@@ -161,11 +174,11 @@
                     if (position > i) {
                         if (position - i == 1) {
                             $('#resultBox').append(`
-                            <div class="col-lg-1 col-sm-12 col-12 mb-5 transfromScale" style="    transform: scale(1.5);
+                            <div class="col-lg2 col-sm-12 col-md-4 col-12 mb-5 transfromScale" style="transform: scale(1.5);
     margin-right: 23px !important;
     position: relative;
     left: 16px;}">
-                                <div class="boxes rounded d-flex h1 m-0 justify-content-center align-items-center m-auto w-100">
+                                <div class="boxes rounded d-flex  h1 m-0 justify-content-center align-items-center m-auto w-100">
                                     ${resultArray[i]}
                                 </div>
                                 <div class="drawHeading" style="font-size:21px;">Draw ${position - i}</div>
@@ -174,8 +187,8 @@
                             startAgain.innerHTML = `START AGAIN`;
                         } else {
                             $('#resultBox').append(`
-                            <div class="col-lg-1 col-sm-6 col-6  mb-5"">
-                                <div class="boxes rounded d-flex justify-content-center align-items-center m-auto h3 m-0">
+                            <div class="col-lg1 col-md-4  col-sm-6 col-6  mb-5"">
+                                <div style="width:88%;" class="boxes rounded d-flex justify-content-center align-items-center m-auto h3 m-0">
                                     ${resultArray[i]}
                                 </div>
                                 <div class="drawHeading">Draw ${position - i}</div>
