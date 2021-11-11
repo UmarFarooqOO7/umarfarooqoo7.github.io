@@ -57,19 +57,19 @@
         .drawHeading {
             font-size: 20px;
             font-weight: bolder;
-            color: #fff;
+            color: black;
             text-align: center;
             margin-top: 5px;
         }
 
         .boxes {
-            border: 3px solid #fff;
-            padding: 12px;
+            border: 6px solid black;
+            padding: 8px;
             width: 100px;
-            height: 125px;
+            height: 120px;
             font-size: 43px;
             font-weight: 700;
-            color: #fff;
+            color: black;
             border-radius: 20px !important;
         }
         @media (min-width: 768px){
@@ -78,7 +78,7 @@
     max-width: 20.333333%;
 }
     .boxes {
-        font-size: 38px;
+        font-size: 90px;
     }
         }
         @media (min-width: 1300px) {
@@ -195,8 +195,8 @@
                             startAgain.innerHTML = `START AGAIN`;
                         } else {
                             $('#resultBox').append(`
-                            <div class="col-lg1 col-md-4  col-sm-6 col-6  mb-5"">
-                                <div style="width:88%;" class="boxes rounded d-flex justify-content-center align-items-center m-auto h3 m-0">
+                            <div class="col-lg1 col-md-4  col-sm-6 col-6  mb-5 minus-margin-right">
+                                <div style="width:100%;" class="boxes rounded d-flex justify-content-center align-items-center m-auto h3 m-0 shadow">
                                     ${resultArray[i]}
                                 </div>
                                 <div class="drawHeading">Draw ${position - i}</div>

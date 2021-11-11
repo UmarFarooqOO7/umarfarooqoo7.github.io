@@ -245,3 +245,7 @@ ul,
   background-color: red;
   display: none;
 }
+
+.minus-margin-right {
+  margin-right: -15px;
+}
