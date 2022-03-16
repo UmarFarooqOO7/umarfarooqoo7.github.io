@@ -44,7 +44,7 @@ header {
     text-shadow: 0 0 2px #0002f3, 0 0 10px #0002f3, 0 0 15px #0002f3, 0 0 20px #0002f3, 0 0 35px #0002f3, 0 0 40px #0002f3, 0 0 50px #0002f3, 0 0 75px #0002f3;
 }
 
-#number, #number2 {
+.number-input {
     border-radius: 0.4rem;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     width: 100%;

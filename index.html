@@ -68,14 +68,16 @@
             /* width: 100px; */
             height: 90px;
             font-size: 43px;
-            
+
             /* font-weight: 600; */
             color: #fff;
             border-radius: 20px !important;
         }
-.container{
-    margin-top: 0px;
-}
+
+        .container {
+            margin-top: 0px;
+        }
+
         @media (min-width: 768px) {
             .col-md-4 {
                 flex: 0 0 20.333333%;
@@ -120,13 +122,19 @@
 
     <div class="wrapper">
         <div class="container" style="width: 100%">
-            <!-- <form action=""> -->
             <div id="topId">
-                <!-- <label for="" style="color: #fff; text-align: center; display: block;">ENTER NUMBER OF TICKETS:</label> -->
-                <div class="col-lg-4 m-auto"><input id="number" placeholder="ENTER NUMBER OF TICKETS"
-                        class="w-100 form-control" style=" text-align: center;" type="number" min="1"></div>
-                <div class="col-lg-4 m-auto"><input id="number2" placeholder="HOW MANY DRAWS" class="w-100 form-control"
-                        required style=" text-align: center;" type="number" min="1"></div>
+                <div class="col-lg-4 m-auto">
+                    <input id="ticketStart" placeholder="TICKET NUMBER START" class="w-100 form-control number-input"
+                        style=" text-align: center;" type="number" min="1" value="10">
+                </div>
+                <div class="col-lg-4 m-auto">
+                    <input id="ticketEnd" placeholder="TICKET NUMBER END" class="w-100 form-control number-input"
+                        style=" text-align: center;" type="number" min="1" value="100">
+                </div>
+                <div class="col-lg-4 m-auto">
+                    <input id="draws" placeholder="HOW MANY DRAWS" class="w-100 form-control number-input" required
+                        style=" text-align: center;" type="number" min="1" value="2">
+                </div>
                 <div class="text-center"><button onclick="myClick(this)"
                         class="bubbly-button buttonAnimation">START</button>
                 </div>
@@ -147,174 +155,8 @@
     <div id="resultBox" style="transition:.7s;" class="row justify-content-center w-100 m-auto flex-wrap px-3">
     </div>
 
-    <!-- testing result box -->
-    <!-- <div id="resultBox2" style="transition:.7s;" class="row justify-content-center w-100 m-auto flex-wrap px-3">
-        <div class="pr-2">
-            <div style="width:fit-content; min-width: 150px;"
-                class="boxes rounded d-flex justify-content-center align-items-center shadow">
-                455
-            </div>
-            <div class="drawHeading">Draw 10</div>
-        </div>
-
-        <div class="pr-2">
-            <div style="width:fit-content; min-width: 150px;"
-                class="boxes rounded d-flex justify-content-center align-items-center shadow">
-                61324
-            </div>
-            <div class="drawHeading">Draw 9</div>
-        </div>
-
-        <div class="pr-2">
-            <div style="width:fit-content; min-width: 150px;"
-                class="boxes rounded d-flex justify-content-center align-items-center shadow">
-                94
-            </div>
-            <div class="drawHeading">Draw 8</div>
-        </div>
-
-        <div class="pr-2">
-            <div style="width:fit-content; min-width: 150px;"
-                class="boxes rounded d-flex justify-content-center align-items-center shadow">
-                9
-            </div>
-            <div class="drawHeading">Draw 8</div>
-        </div>
-
-        <div class="pr-2">
-            <div style="width:fit-content; min-width: 150px;"
-                class="boxes rounded d-flex justify-content-center align-items-center shadow">
-                9434
-            </div>
-            <div class="drawHeading">Draw 8</div>
-        </div>
-
-        <div class="pr-2">
-            <div style="width:fit-content; min-width: 150px;"
-                class="boxes rounded d-flex justify-content-center align-items-center shadow">
-                945
-            </div>
-            <div class="drawHeading">Draw 8</div>
-        </div>
-    </div> -->
-
-    <!-- <div id="InnerDiv" class="d-flex flex-wrap"></div> -->
-
+    <script src="assets/js/main.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </body>
-<script>
-    let resultArray = [];
-
-
-
-    const myClick = (e) => {
-        // console.log(number2 != '');
-        if (number2.value == '') {
-            alert('ENTER NUMBER OF DRAWS')
-            return false;
-        }
-        if (number.value == '') {
-            alert('ENTER NUMBER OF TICKETS')
-            return false;
-        }
-
-        if (number.value >= '0') {
-            let a = number.value;
-            let cler = setInterval(() => {
-                asad.innerHTML = Math.floor((Math.random() * a) + 1)
-            }, 10)
-            setTimeout(function () {
-                clearInterval(cler);
-                winnerTicket.style.display = 'block'
-                // trophy.style.display = 'block'
-                startAgain.style.display = 'block'
-                document.getElementById('audio_play').play()
-
-                resultArray.push(asad.innerHTML);
-                $('#resultBox').html('');
-                let position = number2.value;
-                for (let i = 0; i < resultArray.length; i++) {
-                    if (position > i) {
-                        if (position - i == 1) {
-                            $('#resultBox').append(`
-                            <div class="pr-2 " style="margin-bottom: 60px;">
-                                <div class="boxes rounded d-flex justify-content-center align-items-center shadow-lg">
-                                    ${resultArray[i]}
-                                </div>
-                                <div class="drawHeading" style="font-size:21px;">Draw ${position - i}</div>
-                            </div>
-                            `);
-                            startAgain.innerHTML = `START AGAIN`;
-                        } else {
-                            $('#resultBox').append(`
-                            <div class="pr-2 " style="margin-bottom: 60px;">
-            <div style=""
-                class="boxes rounded d-flex justify-content-center align-items-center shadow-lg">
-                ${resultArray[i]}
-            </div>
-            <div class="drawHeading">Draw ${position - i}</div>
-        </div>
-                            `);
-
-                            startAgain.innerHTML = `DRAW AGAIN`;
-                        }
-                    }
-                }
-
-            }, 8000)
-            topId.style.display = 'none'
-            asad.style.display = 'block';
-            document.getElementById('audio2_play').play()
-        }
-
-
-
-        // e.preventDefault()
-    }
-
-
-
-    const showAgain = () => {
-        if (startAgain.innerHTML === `START AGAIN`) {
-            window.location.reload();
-        }
-        if (document.getElementById('asad').style.display == 'block') {
-            document.getElementById('asad').style.display = 'none';
-        }
-        winnerTicket.style.display = 'none'
-        // trophy.style.display = 'none'
-        topId.style.display = 'block'
-        startAgain.style.display = 'none'
-
-        myClick()
-    }
-</script>
-<script>
-    var animateButton = function (e) {
-
-        e.preventDefault;
-        //reset animation
-        e.target.classList.remove('animate');
-
-        e.target.classList.add('animate');
-        setTimeout(function () {
-            e.target.classList.remove('animate');
-        }, 700);
-    };
-
-    // var bubblyButtons = document.getElementsByClassName("bubbly-button");
-
-    // for (var i = 0; i < bubblyButtons.length; i++) {
-    //     bubblyButtons[i].addEventListener('click', animateButton, false);
-    // }
-    // for (var input = 100; input >= 1; input--) {
-    //    let abcgh = Math.floor((Math.random() * input) + 1)
-    //     var btn = document.createElement("div");
-    //     btn.classList.add('boxes')
-    //              btn.innerHTML=abcgh
-    //             InnerDiv.append(btn)
-    //     }
-</script>
-
 
 </html>
