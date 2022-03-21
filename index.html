@@ -124,13 +124,18 @@
         <div class="container" style="width: 100%">
             <div id="topId">
                 <div class="col-lg-4 m-auto">
-                    <input id="ticketStart" placeholder="TICKET NUMBER START" class="w-100 form-control number-input"
+                    <input id="ticketStart" placeholder="TICKET STARTING NUMBER" class="w-100 form-control number-input"
                         style=" text-align: center;" type="number" min="1" value="10">
                 </div>
                 <div class="col-lg-4 m-auto">
-                    <input id="ticketEnd" placeholder="TICKET NUMBER END" class="w-100 form-control number-input"
+                    <input id="ticketEnd" placeholder="TICKET ENDING NUMBER" class="w-100 form-control number-input"
                         style=" text-align: center;" type="number" min="1" value="100">
                 </div>
+
+                <div class="col-lg-4 m-auto">
+                    <p>Total ticket to be drawn is: <span id="difference">XXX</span> </p>
+                </div>
+
                 <div class="col-lg-4 m-auto">
                     <input id="draws" placeholder="HOW MANY DRAWS" class="w-100 form-control number-input" required
                         style=" text-align: center;" type="number" min="1" value="2">

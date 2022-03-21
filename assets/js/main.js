@@ -1,3 +1,34 @@
+
+// when ticketStart or ticketEnd is changed or number is typed, calculate the difference between them
+document.getElementById('ticketStart').addEventListener('keyup', calculateDifference);
+document.getElementById('ticketEnd').addEventListener('keyup', calculateDifference);
+document.getElementById('ticketStart').addEventListener('change', calculateDifference);
+document.getElementById('ticketEnd').addEventListener('change', calculateDifference);
+
+
+function calculateDifference() {
+    ticketStart = document.getElementById('ticketStart').value;
+    ticketEnd = document.getElementById('ticketEnd').value;
+
+    // convert to int
+    ticketStart = parseInt(ticketStart);
+    ticketEnd = parseInt(ticketEnd);
+
+    // calculate difference
+    let difference = ticketEnd - ticketStart;
+
+    // difference should be greater than 0
+    if (difference >= 0) {
+        // display difference
+        document.getElementById('difference').innerHTML = difference;
+    }
+    else {
+        // display error
+        document.getElementById('difference').innerHTML = 'ERROR';
+    }
+}
+
+
 let resultArray = [];
 
 function myClick() {
