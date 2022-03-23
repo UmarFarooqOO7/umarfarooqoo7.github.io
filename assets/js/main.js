@@ -14,13 +14,21 @@ function calculateDifference() {
     ticketStart = parseInt(ticketStart);
     ticketEnd = parseInt(ticketEnd);
 
-    // calculate difference
-    let difference = ticketEnd - ticketStart;
+    // both numbers should be greater than 0
+    if (ticketStart > 0 && ticketEnd > 0) {
 
-    // difference should be greater than 0
-    if (difference >= 0) {
-        // display difference
-        document.getElementById('difference').innerHTML = difference;
+        // calculate difference
+        let difference = (ticketEnd - ticketStart) + 1;
+
+        // difference should be greater than 0
+        if (difference > 0) {
+            // display difference
+            document.getElementById('difference').innerHTML = difference;
+        }
+        else {
+            // display error
+            document.getElementById('difference').innerHTML = 'ERROR';
+        }
     }
     else {
         // display error
@@ -42,17 +50,15 @@ function myClick() {
     ticketStart = parseInt(ticketStart);
     ticketEnd = parseInt(ticketEnd);
 
-    // console.log(draws, ticketStart, ticketEnd);
-
-    if (draws == '' || draws == 0 || isNaN(draws)) {
+    if (draws == '' || draws == 0 || isNaN(draws) || draws < 0) {
         alert('ENTER NUMBER OF DRAWS')
         return false;
     }
-    if (ticketStart == '' || isNaN(ticketStart)) {
+    if (ticketStart == '' || isNaN(ticketStart) || ticketStart < 0) {
         alert('ENTER TICKET START NUMBER')
         return false;
     }
-    if (ticketEnd == '' || isNaN(ticketEnd)) {
+    if (ticketEnd == '' || isNaN(ticketEnd) || ticketEnd < 0) {
         alert('ENTER TICKET END NUMBER')
         return false;
     }
