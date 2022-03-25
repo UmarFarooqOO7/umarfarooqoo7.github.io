@@ -27,12 +27,12 @@ function calculateDifference() {
         }
         else {
             // display error
-            document.getElementById('difference').innerHTML = 'ERROR';
+            document.getElementById('difference').innerHTML = '';
         }
     }
     else {
         // display error
-        document.getElementById('difference').innerHTML = 'ERROR';
+        document.getElementById('difference').innerHTML = '';
     }
 }
 
