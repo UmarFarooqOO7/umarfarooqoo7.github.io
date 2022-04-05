@@ -16,7 +16,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 400px !important;
+    /* height: 400px !important; */
 }
 
 header {
@@ -81,7 +81,7 @@ header {
 
 .bubbly-button, .startAgain {
     display: inline-block;
-    font-size: 1.2em;
+    font-size: 2rem;
     margin-top: 20px;
     margin-bottom: 20px;
     -webkit-appearance: none;
@@ -91,8 +91,8 @@ header {
     border-radius: 100%;
     border: none;
     margin: auto;
-    width: 120px;
-    height: 120px;
+    width: 10rem;
+    height: 10rem;
     cursor: pointer;
     position: relative;
     transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
